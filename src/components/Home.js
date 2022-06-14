@@ -21,7 +21,7 @@ function Home() {
             <div className='section-3'>
                 <div className='section3-content row'>
                     <div className='col-md-2 col-sm-4 col-6 p-0 yellow-btn'>
-                        <a href="/content/energymate">
+                        <a href="/energymate">
                             <div>
                                 <img src={energymate} width="108" height="108" alt=""/>
                                 <h5>ENERGYMATE</h5>
@@ -37,7 +37,7 @@ function Home() {
                         </a>
                     </div>
                     <div className='col-md-2 col-sm-4 col-6 p-0 yellow-btn'>
-                        <a href="/content/commercial">
+                        <a href="/commercial">
                             <div>
                                 <img src={commercial} width="108" height="108" alt=""/>
                                 <h5>COMMERCIAL</h5>
@@ -45,7 +45,7 @@ function Home() {
                         </a>
                     </div>
                     <div className='col-md-2 col-sm-4 col-6 p-0 yellow-btn'>
-                        <a href="/content/domestic">
+                        <a href="/domestic">
                             <div>
                                 <img src={domestic} width="108" height="108" alt=""/>
                                 <h5>DOMESTIC</h5>
@@ -53,7 +53,7 @@ function Home() {
                         </a>
                     </div>
                     <div className='col-md-2 col-sm-4 col-6 p-0 yellow-btn'>
-                        <a href="/content/commercial-catering">
+                        <a href="/commercial-catering">
                             <div>
                                 <img src={catering} width="108" height="108" alt=""/>
                                 <h5>COMMERCIAL<br/>CATERING</h5>
@@ -61,7 +61,7 @@ function Home() {
                         </a>
                     </div>
                     <div className='col-md-2 col-sm-4 col-6 p-0 yellow-btn'>
-                        <a href="/content/maintenance">
+                        <a href="/maintenance">
                             <div>
                                 <img src={maintenance} width="108" height="108" alt=""/>
                                 <h5>MAINTENANCE</h5>

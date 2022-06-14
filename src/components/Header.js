@@ -24,18 +24,18 @@ function Header(props) {
                             </div>
                             <ul className='main-navbar m-0'>
                                 <li className='drop'>
-                                    <a href="/content/commercial">COMMERCIAL</a>
+                                    <a href="/commercial">COMMERCIAL</a>
                                     <ul className="dropdown">
-                                        <li><a href="/content/cbus">CBUS</a></li>
-                                        <li><a href="/content/thermographic-scanning">Thermographic scanning</a></li>
+                                        <li><a href="/cbus">CBUS</a></li>
+                                        <li><a href="/thermographic-scanning">Thermographic scanning</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="/content/domestic">DOMESTIC</a></li>
-                                <li><a href="/content/commercial-catering">CATERING</a></li>
+                                <li><a href="/domestic">DOMESTIC</a></li>
+                                <li><a href="/commercial-catering">CATERING</a></li>
                                 <li><a href="/projects">PROJECTS</a></li>
-                                <li><a href="/content/energymate">ENERGYMATE</a></li>
-                                <li><a href="/content/maintenance">MAINTENANCE</a></li>
-                                <li><a href="/content/online-quotebook-job">CONTACT</a></li>
+                                <li><a href="/energymate">ENERGYMATE</a></li>
+                                <li><a href="/maintenance">MAINTENANCE</a></li>
+                                <li><a href="/online-quotebook-job">CONTACT</a></li>
                             </ul>
                         </div>
                     </div>

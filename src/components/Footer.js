@@ -56,13 +56,13 @@ function Footer() {
                                         <h1>COMMARICAL</h1>
                                         <ul>
                                                 <li>
-                                                    <a href="/content/commercial">Commerical</a>
+                                                    <a href="/commercial">Commerical</a>
                                                 </li>
                                                 <li>
-                                                    <a href="/content/cbus">CBUS</a>
+                                                    <a href="/cbus">CBUS</a>
                                                 </li>
                                                 <li>
-                                                    <a href="/content/thermographic-scanning">Thermographic scanning</a>
+                                                    <a href="/thermographic-scanning">Thermographic scanning</a>
                                                 </li>
                                         </ul>
                                     </div>
@@ -80,14 +80,14 @@ function Footer() {
                                         <h1>DOMESTIC</h1>
                                         <ul>
                                                 <li>
-                                                    <a href="/content/domestic">Domestic</a>
+                                                    <a href="/domestic">Domestic</a>
                                             </li>
                                         </ul>
                                     
                                         <h1>EnergyMate</h1>
                                         <ul>
                                                 <li>
-                                                    <a href="/content/energymate">EnergyMate</a>
+                                                    <a href="/energymate">EnergyMate</a>
                                                 </li>
                                         </ul>
                                     </div>
@@ -97,13 +97,13 @@ function Footer() {
                                         <h1>CATERING</h1>
                                         <ul>
                                                 <li>
-                                                    <a href="/content/commercial-catering">Commerical catering</a>
+                                                    <a href="/commercial-catering">Commerical catering</a>
                                                 </li>
                                         </ul>
                                         <h1>MAINTENANCE</h1>
                                         <ul>
                                                 <li>
-                                                    <a href="/content/maintenance">Maintenance</a>
+                                                    <a href="/maintenance">Maintenance</a>
                                                 </li>
                                         </ul>  
                                     </div>
@@ -117,7 +117,7 @@ function Footer() {
                                     </h1>
                                     <ul>
                                                 <li>
-                                                    <a href="content/online-quotebook-job">Quote request form</a>
+                                                    <a href="online-quotebook-job">Quote request form</a>
                                                 </li>
                                         </ul>  
                                     
