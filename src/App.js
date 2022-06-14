@@ -18,14 +18,14 @@ function App() {
       <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home/>}/>
-            <Route path="content/commercial" element={<Commercial />} />
-            <Route path="content/domestic" element={<Domestic />} />
-            <Route path="content/maintenance" element={<Maintenance />} />
-            <Route path="content/thermographic-scanning" element={<Thermographic />} />
-            <Route path="content/cbus" element={<Cbus />} />
-            <Route path="content/commercial-catering" element={<Catering />} />
-            <Route path="content/energymate" element={<Energymate />} />
-            <Route path="content/online-quotebook-job" element={<Contact />} />
+            <Route path="commercial" element={<Commercial />} />
+            <Route path="domestic" element={<Domestic />} />
+            <Route path="maintenance" element={<Maintenance />} />
+            <Route path="thermographic-scanning" element={<Thermographic />} />
+            <Route path="cbus" element={<Cbus />} />
+            <Route path="commercial-catering" element={<Catering />} />
+            <Route path="energymate" element={<Energymate />} />
+            <Route path="online-quotebook-job" element={<Contact />} />
             <Route path="projects" element={<Projects />} />
           </Routes>
       </BrowserRouter>
