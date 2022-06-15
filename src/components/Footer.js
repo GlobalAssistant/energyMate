@@ -136,11 +136,12 @@ function Footer() {
                     <div class = "row bottom-content">
                             <div>
                                 <p>Five Star Electrical | Canberra © 2022</p>
-                                <p><span>Desktop Version Only </span>Website by 
+                                {/* <p><span>Desktop Version Only </span>
+                                    Website by 
                                     <span>
                                     <a href="www.giraffe.com.au" id="span-a">giraffe.com.au</a>
                                     </span>
-                                </p>
+                                </p> */}
                             </div>
                     </div>
                     
