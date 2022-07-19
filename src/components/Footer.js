@@ -133,7 +133,7 @@ function Footer() {
                     </div>
                 </div>
                 <div className="footer-container">
-                    <div class = "row bottom-content">
+                    <div className = "row bottom-content">
                             <div>
                                 <p>Five Star Electrical | Canberra © 2022</p>
                                 {/* <p><span>Desktop Version Only </span>

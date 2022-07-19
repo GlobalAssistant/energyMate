@@ -66,12 +66,12 @@ code {
     vertical-align: baseline;
 }
 
-.phonenumber a {
+.phonenumber span {
     color: red;
     text-decoration: none;
 }
 
-.phonenumber a:hover {
+.phonenumber span:hover {
     color: white;
 }
 

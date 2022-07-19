@@ -21,7 +21,7 @@ function Header(props) {
                                 <h3 className='phonenumber'>
                                     <img src={phone} alt='phone' />
                                     &nbsp;02 6239 3550&nbsp;
-                                    <a href='#'>(ON CALL 24/7)</a>
+                                    <span>(ON CALL 24/7)</span>
                                 </h3>
                             </div>
                             <ul className='main-navbar m-0'>

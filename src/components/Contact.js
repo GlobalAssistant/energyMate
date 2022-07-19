@@ -1,27 +1,66 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Header from './Header'
 import Footer from './Footer'
 import TopButton from './TopButton'
 import '../styles/style.css';
 
+const contactFormFields = {
+    name: '',
+    email: '',
+    phone: '',
+    job_type: '',
+    message: ''
+}
+
 function Contact() { 
+    const [formFields, setFormFields] = useState(contactFormFields);
+    const { name, email, phone, job_type, message } = formFields;
 
-    let flag = 0;
+    const resetFormFields = () => {
+        setFormFields(contactFormFields);
+    };
 
-    const onSubmit = () => {
-        if(flag === 0){
-            document.getElementsByClassName('result')[0].innerHTML = 'Enquiry submitted successfully!';
-            document.getElementsByClassName('result')[0].style.color = '#03c703';
-            flag ++;
-        }else if(flag === 1){
-            document.getElementsByClassName('result')[0].innerHTML = 'There was an error submitting your enquiry!';
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormFields({ ...formFields, [name]: value });
+    };
+
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        if (job_type == '') {
+            document.getElementsByClassName('result')[0].innerHTML = 'Job Type is empty!';
             document.getElementsByClassName('result')[0].style.color = 'red';
-            flag ++;
-        }else if(flag === 2){
-            document.getElementsByClassName('result')[0].innerHTML = '';
-            flag = 0;
+        } else {
+            try {
+                fetch('https://fse.net.au/fse-contact.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: formFields
+                }).then( res => {
+                    console.log('####res##', res.status);
+                    if (res.ok && res.status == 200) {
+                        document.getElementsByClassName('result')[0].innerHTML = 'Enquiry submitted successfully!';
+                        document.getElementsByClassName('result')[0].style.color = '#03c703';
+                    } else {
+                        document.getElementsByClassName('result')[0].innerHTML = 'There was an error submitting your enquiry!';
+                        document.getElementsByClassName('result')[0].style.color = 'red';
+                    }
+                }).catch(err => {
+                    console.log('####err##', err.status);
+
+                    document.getElementsByClassName('result')[0].innerHTML = 'There was an error submitting your enquiry!';
+                    document.getElementsByClassName('result')[0].style.color = 'red';
+                })
+            } catch (error) {
+                console.log('####err##', error.status);
+
+                document.getElementsByClassName('result')[0].innerHTML = 'There was an error submitting your enquiry!';
+                document.getElementsByClassName('result')[0].style.color = 'red';
+            }
         }
-        
     }
 
     return (
@@ -34,35 +73,40 @@ function Contact() {
                         <h2>How can we help?</h2>
                         <p>Please complete the form below and we'll get back to you as soon as possible.</p>
                         <p>For all emergency calls please phone 02 6239 3550 for service.</p>
-                        <div class="form-section">
-                            <div class="form-part">
-                                <p>Name <span>*</span></p>
-                                <input type="text" size="60" maxlength="128"/>
+                        <form onSubmit={handleSubmit}>
+                            <div className="form-section">
+                                <div className="form-part">
+                                    <p>Name <span>*</span></p>
+                                    <input type="text" size="60" name="name" value={name} onChange={handleChange} required/>
+                                </div>
+                                <div className="form-part">
+                                    <p>Email <span>*</span></p>
+                                    <input type="email" size="60" name="email" value={email} onChange={handleChange} required/>
+                                </div>
+                                <div className="form-part">
+                                    <p>Phone <span>*</span></p>
+                                    {/* <input type="tel" size="60" name="phone" value={phone} onChange={handleChange} pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required/> */}
+                                    <input type="tel" size="60" name="phone" value={phone} onChange={handleChange} pattern="[0-9]{10}" required/>
+
+                                </div>
+                                <div className="form-part">
+                                    <p>Job type <span>*</span></p>
+                                    <select value={job_type} name="job_type" onChange={handleChange}>
+                                        <option value="">- Select -</option>
+                                        <option value="1">Domestic</option>
+                                        <option value="2">Commercial</option>
+                                        <option value="3">Catering</option>
+                                    </select>
+                                </div>
+                                <div className="form-part">
+                                    <p>Message <span>*</span></p>
+                                    <textarea cols="110" rows="5" name="message" value={message} onChange={handleChange}/>
+                                </div>
+                                <button className='submit-btn' type="submit">SUBMIT</button>
+                                <p className='result'></p>
                             </div>
-                            <div class="form-part">
-                                <p>Email <span>*</span></p>
-                                <input type="email" size="60" maxlength="128"/>
-                            </div>
-                            <div class="form-part">
-                                <p>Phone <span>*</span></p>
-                                <input type="text" size="60" maxlength="128"/>
-                            </div>
-                            <div class="form-part">
-                                <p>Job type <span>*</span></p>
-                                <select>
-                                    <option value="" selected="selected">- Select -</option>
-                                    <option value="1">Domestic</option>
-                                    <option value="2">Commercial</option>
-                                    <option value="3">Catering</option>
-                                </select>
-                            </div>
-                            <div class="form-part">
-                                <p>Message <span>*</span></p>
-                                <textarea cols="110" rows="5"/>
-                            </div>
-                            <button className='submit-btn' onClick={onSubmit}>SUBMIT</button>
-                            <p className='result'></p>
-                        </div>
+                        </form>
+                        
                     </div>
                     <div className='col-md-4 p-0'>
                         <div className='part-right'>
