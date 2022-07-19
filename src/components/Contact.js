@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
+
 import Header from './Header'
 import Footer from './Footer'
 import TopButton from './TopButton'
@@ -15,6 +16,7 @@ const contactFormFields = {
 function Contact() { 
     const [formFields, setFormFields] = useState(contactFormFields);
     const { name, email, phone, job_type, message } = formFields;
+    const form = useRef(null)
 
     const resetFormFields = () => {
         setFormFields(contactFormFields);
@@ -33,12 +35,20 @@ function Contact() {
             document.getElementsByClassName('result')[0].style.color = 'red';
         } else {
             try {
+                const formData = new FormData();
+                formData.append('name', name);
+                formData.append('email', formFields.email);
+                formData.append('job_type', formFields.job_type);
+                formData.append('phone', formFields.phone);
+                formData.append('message', formFields.message);
+                // console.log('formData', formData);
+
                 fetch('https://fse.net.au/fse-contact.php', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
+                        // 'Content-Type': 'application/form-data',
                     },
-                    body: formFields
+                    body: formData
                 }).then( res => {
                     console.log('####res##', res.status);
                     if (res.ok && res.status == 200) {
@@ -49,13 +59,13 @@ function Contact() {
                         document.getElementsByClassName('result')[0].style.color = 'red';
                     }
                 }).catch(err => {
-                    console.log('####err##', err.status);
+                    console.log('####err##', err);
 
                     document.getElementsByClassName('result')[0].innerHTML = 'There was an error submitting your enquiry!';
                     document.getElementsByClassName('result')[0].style.color = 'red';
                 })
             } catch (error) {
-                console.log('####err##', error.status);
+                console.log('####error##', error);
 
                 document.getElementsByClassName('result')[0].innerHTML = 'There was an error submitting your enquiry!';
                 document.getElementsByClassName('result')[0].style.color = 'red';
@@ -73,7 +83,7 @@ function Contact() {
                         <h2>How can we help?</h2>
                         <p>Please complete the form below and we'll get back to you as soon as possible.</p>
                         <p>For all emergency calls please phone 02 6239 3550 for service.</p>
-                        <form onSubmit={handleSubmit}>
+                        <form ref={form} onSubmit={handleSubmit}>
                             <div className="form-section">
                                 <div className="form-part">
                                     <p>Name <span>*</span></p>
